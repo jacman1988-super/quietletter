@@ -1,0 +1,29 @@
+QuietLetter — actual verification, 14 October 2026
+
+PASS / observed
+- Public Apertus 1.5 community GGUF, 5,059,027,136 bytes, exact pinned HF revision and SHA256 verified.
+- Real local llama.cpp b11552 CPU inference; no Qwen or paid fallback.
+- Twelve distinct technical tests passed: 10 core/adapter tests and 2 actual local HTTP server tests, including origin/host rejection and explicit shutdown coverage.
+- Six real local HTTP cases saved in data/live-evaluation.json, separately from injected automated tests.
+- Model action results before disagreement rules: 6 TP / 1 FP / 1 FN. Uncertainty: 4 TP / 0 FP / 0 FN. Development set; first example used for prompt tuning. No held-out benchmark claim.
+- Actual native run-local.mjs --cli input/output with a fictional library letter returned its action and literal date. Own model stopped afterward (ECONNREFUSED observed).
+- Model endpoint without a session key returned HTTP 401.
+- Real Chrome: Polish inference, English UI, exact source jump, stale result removal after text edit, cancellation without partial output.
+- Final JSON report opened and parsed in Chrome: matching source hash, four passages, two actions, actual Apertus alias.
+- Actual desktop background launcher became ready; UI Stop shut down both web app and model; both ports refused connections. Restarted for user review.
+- Mobile viewport 390 px: document width 375 px, no horizontal overflow; viewport override reset.
+- Three-page technical report rendered and visually reviewed. It is a DEVELOPMENT report.
+
+LIMITS / unverified
+- No Docker executable was available on this host. Docker build, exact make run on a clean checkout and container inference remain UNVERIFIED.
+- Prepared manual-only GitHub workflow has not been published, parsed by GitHub or run. Standard public runner only; no caches/artifact upload/deploy/secrets.
+- Larger Chrome example also classified a meeting statement as a task. This is not a reliable classifier. Full source remains visible and all classifications are drafts.
+- Independent keyword/negation rules only highlight disagreements; they do not prove completeness or correctness.
+- Literal date scan does not validate dates or calculate legal deadlines.
+- No final demo video, public repository, contest registration or submission yet.
+- Download was not confirmed through the browser; replaced with a visible, selectable JSON report. No file-download success claim.
+
+Data is original fictional text. No personal letters, keys, private account data or model binaries belong in the source ZIP.
+
+NEXT
+Review/approve public source publication and a free standard public GitHub Actions Docker check. Then fix actual container failures, record a real under-two-minute demo, and prepare final contest review. No new account, purchase or terms acceptance has been performed.
