@@ -1,27 +1,8 @@
-# Secrets and local config
 .env
-.env.*
-!.env.example
-
-# Model weights and checkpoints — do not commit these
-*.bin
-*.safetensors
+.local-ai/
 *.gguf
-*.ckpt
-*.pt
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-
-# Node
+*.part
 node_modules/
-dist/
-build/
-
-# OS and editor
-.DS_Store
-.idea/
-.vscode/
+private/
+runtime-state.json
+*.log
