@@ -13,5 +13,7 @@ give legal advice, contact a sender, or save letters on the server.
 Application: Apache-2.0, see LICENSE. Report/docs: CC-BY-4.0.
 Upstream template: https://github.com/HackApertus/project-template
 
-Status: local development. Read track_2b/docs/VERIFICATION.txt for actual evidence
-and remaining limitations; an included deployment recipe is not a deployment test.
+Status: public development prototype, not yet submitted. The exact `make run`
+passed on a clean public Ubuntu runner, including the Docker build, 12 tests and
+one real local Apertus review: [verification run](https://github.com/jacman1988-super/quietletter/actions/runs/38594216006).
+Read track_2b/docs/VERIFICATION.txt for actual evidence and remaining limitations.
