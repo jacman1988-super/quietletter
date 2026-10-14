@@ -1,0 +1,44 @@
+name: Verify required Docker entry point
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-container:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Run the exact contest entry point and a real fictional review
+        shell: bash
+        run: |
+          set -euo pipefail
+          make run > /tmp/quietletter-container.log 2>&1 &
+          launcher=$!
+          trap 'kill "$launcher" 2>/dev/null || true; docker ps -q --filter ancestor=quietletter:local | xargs -r docker stop >/dev/null' EXIT
+          ready=0
+          for attempt in $(seq 1 1800); do
+            if ! kill -0 "$launcher" 2>/dev/null; then cat /tmp/quietletter-container.log; exit 1; fi
+            if curl -fsS --max-time 2 http://127.0.0.1:8830/api/status > /tmp/status.json 2>/dev/null && python3 -c 'import json; assert json.load(open("/tmp/status.json"))["ready"] is True'; then ready=1; break; fi
+            sleep 1
+          done
+          if [ "$ready" != 1 ]; then cat /tmp/quietletter-container.log; exit 1; fi
+          docker run --rm quietletter:local node --test src/core.test.mjs src/server.test.mjs
+          curl -fsS --max-time 190 -H 'Origin: http://127.0.0.1:8830' -H 'Content-Type: application/json' --data '{"text":"Please return your library card by 2026-10-20.\nThe room number is not decided yet.","language":"en"}' http://127.0.0.1:8830/api/review > /tmp/result.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/result.json'))
+          assert r['checks']['quotesVerified'] is True
+          assert r['checks']['complete'] is False
+          assert r['model']['name']=='apertus-1.5-quietletter'
+          assert r['actions'] and r['clarify']
+          assert r['actions'][0]['quote']=='Please return your library card by 2026-10-20.'
+          assert r['dates'][0]['literal']=='2026-10-20'
+          print(json.dumps(r,indent=2))
+          PY
+          printf '## Real Docker verification\n\nExact `make run`, actual local Apertus and grounded fictional HTTP review passed. No live user letters used.\n' >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/status.json
+      # No uploads, caches, Pages, image registry, secrets, larger runners or deploy.
