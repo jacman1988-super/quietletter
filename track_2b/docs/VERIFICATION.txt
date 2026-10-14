@@ -13,17 +13,19 @@ PASS / observed
 - Actual desktop background launcher became ready; UI Stop shut down both web app and model; both ports refused connections. Restarted for user review.
 - Mobile viewport 390 px: document width 375 px, no horizontal overflow; viewport override reset.
 - Three-page technical report rendered and visually reviewed. It is a DEVELOPMENT report.
+- Public repository created from HackApertus/project-template: https://github.com/jacman1988-super/quietletter. All 35 public files matched local source after the Docker dependency correction; unused template tracks removed.
+- Real clean-checkout Docker run passed on the standard public Ubuntu 24.04 GitHub runner at commit 3f21c5fff7b57497bc21535d20bb02b04a765bd7. Exact make run downloaded/verified weights, built the image and started actual Apertus. All 12 technical tests passed inside the image. One real fictional HTTP review returned the expected action, uncertainty quote and literal date; inference 28.659 seconds. This is a smoke test, not an accuracy benchmark.
+- Successful workflow: https://github.com/jacman1988-super/quietletter/actions/runs/38594216006. No artifact upload, cache, paid runner or model service used. Subsequent documentation-only updates do not change tested code/workflow.
 
 LIMITS / unverified
-- No Docker executable was available on this host. Docker build, exact make run on a clean checkout and container inference remain UNVERIFIED.
-- Prepared manual-only GitHub workflow has not been published, parsed by GitHub or run. Standard public runner only; no caches/artifact upload/deploy/secrets.
+- No Docker executable is available on the author's Windows host; Docker was verified on the public Ubuntu runner instead. First run failed because make was absent in the build image; corrected before the successful second run.
 - Larger Chrome example also classified a meeting statement as a task. This is not a reliable classifier. Full source remains visible and all classifications are drafts.
 - Independent keyword/negation rules only highlight disagreements; they do not prove completeness or correctness.
 - Literal date scan does not validate dates or calculate legal deadlines.
-- No final demo video, public repository, contest registration or submission yet.
+- No final demo video, contest registration or submission yet.
 - Download was not confirmed through the browser; replaced with a visible, selectable JSON report. No file-download success claim.
 
 Data is original fictional text. No personal letters, keys, private account data or model binaries belong in the source ZIP.
 
 NEXT
-Review/approve public source publication and a free standard public GitHub Actions Docker check. Then fix actual container failures, record a real under-two-minute demo, and prepare final contest review. No new account, purchase or terms acceptance has been performed.
+Record a real under-two-minute demo and prepare final contest review. Source publication and the free Docker check were explicitly authorized and completed. No new account, purchase or contest terms acceptance has been performed.

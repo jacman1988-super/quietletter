@@ -51,9 +51,15 @@ memory, and no external API is used at runtime. This targets **on-premise**
 architecture. It does not claim audited air-gap isolation: the default Docker
 network has egress even though this code makes no external runtime requests.
 
-**Docker was not installed on the author host when this recipe was prepared. Its
-build and clean-checkout end-to-end execution are still UNVERIFIED. Do not mark
-the contest entry ready until an actual Docker run has passed.**
+The exact `make run` passed from a clean checkout on a standard public Ubuntu
+24.04 GitHub runner on 14 October 2026, at commit
+`3f21c5fff7b57497bc21535d20bb02b04a765bd7`. The image built, all 12 technical tests
+passed inside it, and a real fictional Apertus HTTP review matched the expected
+request, uncertainty quote and literal date (28.659 seconds for that inference).
+See https://github.com/jacman1988-super/quietletter/actions/runs/38594216006.
+The first attempt found missing `make` in the build image; that was fixed.
+Docker remains absent on the author's Windows host. This single smoke test does
+not establish classifier accuracy. The contest demo and final submission remain pending.
 
 ## Input/output contract
 
