@@ -1,0 +1,135 @@
+{
+  "kind": "Actual local Apertus HTTP inference; hand-authored fictional mini-set, not a benchmark",
+  "dateUtc": "2026-10-14T14:31:17.664Z",
+  "results": [
+    {
+      "id": "pl-request",
+      "elapsedMs": 9765,
+      "input": {
+        "text": "Dzień dobry.\nProszę przesłać podpisany formularz do 20 października 2026.\nJeżeli chcesz zmienić godzinę spotkania, potwierdź to e-mailem.\nNumer sali nie został jeszcze ustalony.",
+        "language": "pl"
+      },
+      "expected": {
+        "actions": [
+          "Proszę przesłać podpisany formularz do 20 października 2026.",
+          "Jeżeli chcesz zmienić godzinę spotkania, potwierdź to e-mailem."
+        ],
+        "unclear": [
+          "Numer sali nie został jeszcze ustalony."
+        ]
+      },
+      "output": {
+        "version": 1,
+        "sourceHash": "36b23a0fdc49db1caf35ca61f24c75cd092f4ff1e8805e1329994ba6bc0a0dcb",
+        "language": "pl",
+        "source": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "quote": "Dzień dobry."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 73,
+            "quote": "Proszę przesłać podpisany formularz do 20 października 2026."
+          },
+          {
+            "id": 3,
+            "start": 74,
+            "end": 137,
+            "quote": "Jeżeli chcesz zmienić godzinę spotkania, potwierdź to e-mailem."
+          },
+          {
+            "id": 4,
+            "start": 138,
+            "end": 177,
+            "quote": "Numer sali nie został jeszcze ustalony."
+          }
+        ],
+        "actions": [
+          {
+            "sourceId": 2,
+            "quote": "Proszę przesłać podpisany formularz do 20 października 2026.",
+            "start": 13,
+            "end": 73
+          }
+        ],
+        "clarify": [
+          {
+            "sourceId": 1,
+            "quote": "Dzień dobry.",
+            "start": 0,
+            "end": 12
+          },
+          {
+            "sourceId": 3,
+            "quote": "Jeżeli chcesz zmienić godzinę spotkania, potwierdź to e-mailem.",
+            "start": 74,
+            "end": 137
+          },
+          {
+            "sourceId": 4,
+            "quote": "Numer sali nie został jeszcze ustalony.",
+            "start": 138,
+            "end": 177
+          }
+        ],
+        "dates": [
+          {
+            "literal": "20 października 2026",
+            "sourceId": 2,
+            "start": 52,
+            "end": 72,
+            "quote": "Proszę przesłać podpisany formularz do 20 października 2026.",
+            "interpretation": "unresolved"
+          }
+        ],
+        "checks": {
+          "quotesVerified": true,
+          "classificationVerified": false,
+          "complete": false,
+          "datesInterpreted": false
+        },
+        "model": {
+          "name": "apertus-1.5-quietletter",
+          "elapsedMs": 9683,
+          "local": true,
+          "usage": {
+            "completion_tokens": 20,
+            "prompt_tokens": 268,
+            "total_tokens": 288,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          }
+        }
+      },
+      "modelScore": {
+        "actions": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1
+        },
+        "unclear": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 0
+        }
+      },
+      "baselineScore": {
+        "actions": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      }
+    }
+  ]
+}

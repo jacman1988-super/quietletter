@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "sourceHash": "4b0b70cc503fd44e511d825fe517959d3c37475079f92d4ed2cb3045bf55955f",
+  "language": "en",
+  "source": [
+    {
+      "id": 1,
+      "start": 0,
+      "end": 45,
+      "quote": "Please bring your library card by 2026-10-20."
+    },
+    {
+      "id": 2,
+      "start": 46,
+      "end": 80,
+      "quote": "The meeting room is not known yet."
+    }
+  ],
+  "actions": [
+    {
+      "sourceId": 1,
+      "quote": "Please bring your library card by 2026-10-20.",
+      "start": 0,
+      "end": 45
+    }
+  ],
+  "clarify": [
+    {
+      "sourceId": 2,
+      "quote": "The meeting room is not known yet.",
+      "start": 46,
+      "end": 80
+    }
+  ],
+  "dates": [
+    {
+      "literal": "2026-10-20",
+      "sourceId": 1,
+      "start": 34,
+      "end": 44,
+      "quote": "Please bring your library card by 2026-10-20.",
+      "interpretation": "unresolved"
+    }
+  ],
+  "crossCheck": {
+    "method": "literal keyword and no-action phrase rules; not verified classifiers",
+    "ruleOnly": [],
+    "disputed": []
+  },
+  "rawSelection": {
+    "actions": [
+      1
+    ],
+    "unclear": [
+      2
+    ]
+  },
+  "checks": {
+    "quotesVerified": true,
+    "classificationVerified": false,
+    "complete": false,
+    "datesInterpreted": false
+  },
+  "model": {
+    "name": "apertus-1.5-quietletter",
+    "elapsedMs": 10473,
+    "local": true,
+    "usage": {
+      "completion_tokens": 12,
+      "prompt_tokens": 349,
+      "total_tokens": 361,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  }
+}
