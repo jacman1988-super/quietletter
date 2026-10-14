@@ -2,7 +2,7 @@
 
 Track 2B - Own Project | Online | Jacek Adamek (solo)
 
-Started 14 October 2026. Development report, not a submitted entry. Demo video: not recorded. Docker verification: pending.
+Started 14 October 2026. Development report, not a submitted entry. Demo video: not recorded. Public source published; clean-checkout Docker verification passed on 14 October 2026.
 
 ## 1. Summary
 
@@ -50,11 +50,13 @@ The model can miss requests and misclassify negation or event descriptions. Exac
 
 See docs/RUN.md. Node.js 22.19+ and official llama.cpp b11552 run on the tested Windows computer with about 16 GB RAM. Weights/binaries are excluded from source. The explicit Python setup downloads the pinned model and verifies SHA256. The template environment names LLM_NAME, LLM_BASE_URL and LLM_API_KEY are supported for separately running loopback inference.
 
-make run is prepared to download weights, build Docker and start the app. Docker was absent on the author host, so no build or clean-container end-to-end result is claimed. A manual-only workflow for a standard public GitHub runner is prepared but unpublished and unrun. No public source commit is claimed yet. The standalone CLI accepts one JSON object with text and language pl/en and returns grounded quotes, date literals, raw selections and disagreement flags; one actual native CLI run returned the expected action and date, and its model stopped afterward.
+Public source: https://github.com/jacman1988-super/quietletter, created from the official template. On 14 October 2026 a standard public Ubuntu 24.04 GitHub runner executed the exact make run from a clean checkout at commit 3f21c5fff7b57497bc21535d20bb02b04a765bd7. It downloaded and verified the weights, built Docker, started local Apertus, passed all 12 technical tests inside the image and completed a real fictional HTTP review. The selected request, uncertainty quote and literal date matched that example; inference took 28.659 seconds. This is one container smoke test, not a new accuracy benchmark. The first attempt exposed missing make in the build image; that dependency was added before this successful run. No paid runner, uploaded artifact, cache or external model API was used. Verification: https://github.com/jacman1988-super/quietletter/actions/runs/38594216006. Docker remains absent on the author's Windows host.
+
+The standalone CLI accepts one JSON object with text and language pl/en and returns grounded quotes, date literals, raw selections and disagreement flags; one actual native CLI run returned the expected action and date, and its model stopped afterward. Subsequent public documentation-only updates do not change the tested runtime or workflow.
 
 ## 8. Next steps
 
-Run the exact Docker entry point on a clean machine and repair actual failures. Add independent held-out letters with human annotations, improve classification and record the required under-two-minute demo. Publish reviewed sources only with authorization, preserve attributions, and obtain explicit final submission/terms approval before entering the contest.
+Record the required under-two-minute demo and obtain explicit final submission/terms approval before entering the contest. Further research should add independent held-out letters with human annotations and improve classification. Preserve attribution and the small development-set limitations; a successful container smoke test does not establish reliable interpretation of correspondence.
 
 ## License
 
