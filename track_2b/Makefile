@@ -1,6 +1,10 @@
-.PHONY: run
-
-# Replace with the command that starts the project in a Docker container,
-# e.g. `docker compose up`. It must work from a clean checkout.
+.PHONY: run build test
+PYTHON ?= python3
+build:
+	docker build -t quietletter:local .
 run:
-	@echo "make run is not implemented yet — edit this Makefile"; exit 1
+	$(PYTHON) src/setup-model.py
+	$(MAKE) build
+	docker run --rm --init --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=128 --read-only --tmpfs /tmp:rw,size=64m -p 127.0.0.1:8830:8830 -v "$(CURDIR)/.local-ai:/models:ro" quietletter:local
+test:
+	node --test src/core.test.mjs src/server.test.mjs
