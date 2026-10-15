@@ -2,7 +2,7 @@
 
 Track 2B - Own Project | Online | Jacek Adamek (solo)
 
-Started 14 October 2026. Development report, not a submitted entry. Demo video: not recorded. Public source published; clean-checkout Docker verification passed on 14 October 2026.
+Started 14 October 2026. Prepared for Hack Apertus submission. Public source and clean-checkout Docker verification: 14 October. English demo recorded 15 October: 116.27 seconds.
 
 ## 1. Summary
 
@@ -28,7 +28,7 @@ Serving: official llama.cpp b11552 CPU Windows build; 4096-token context, four g
 
 ## 4. Data and attribution
 
-data/evaluation.json contains six original hand-authored fictional English/Polish letters and expected passage quotes. Cases cover conditional requests, negation, relative dates, a quoted instruction attack and contradictory meeting dates. No actual user letter or personal correspondence was used. Original fictional evaluation content: CC-BY-4.0. Recorded responses are in data/live-evaluation.json; the first development run is retained separately. Data is below 100 MB. No public Hugging Face dataset publication is claimed.
+data/evaluation.json contains six original hand-authored fictional English/Polish letters and expected passage quotes. Cases cover conditional requests, negation, relative dates, a quoted instruction attack and contradictory meeting dates. No actual user letter or personal correspondence was used. Dataset licence: CDLA-Permissive-2.0 (data/LICENSE), as required by the event. Earlier CC-BY-4.0 permissions for original fictional text remain available. Recorded model responses are attributed evidence, not claimed as human-written letters. They are in data/live-evaluation.json; the first development run is retained separately. Data is below 100 MB. No public Hugging Face dataset publication is claimed.
 
 The upstream project template is preserved in track_2b, from commit 09f8e9e2b588db3325869b23c6d5132f5c3756f7. No previously submitted application code is repackaged as this new project. Existing official runtime binaries were reused locally and are excluded from the source package.
 
@@ -54,13 +54,15 @@ Public source: https://github.com/jacman1988-super/quietletter, created from the
 
 The standalone CLI accepts one JSON object with text and language pl/en and returns grounded quotes, date literals, raw selections and disagreement flags; one actual native CLI run returned the expected action and date, and its model stopped afterward. Subsequent public documentation-only updates do not change the tested runtime or workflow.
 
-## 8. Next steps
+## 8. Demo and next steps
 
-Record the required under-two-minute demo and obtain explicit final submission/terms approval before entering the contest. Further research should add independent held-out letters with human annotations and improve classification. Preserve attribution and the small development-set limitations; a successful container smoke test does not establish reliable interpretation of correspondence.
+The English demo is an explicitly labelled edit of genuine browser captures with synthetic local English narration. It includes 43 sampled frames of an actual 15 October Apertus request at original timing (first/last frame held), then recorded source navigation, JSON-report opening and the previous successful Docker run. The fictional two-sentence library example took 17.461 seconds of model inference. This is a demonstration, not independent accuracy evaluation. No generated replacement interface or prepared model response is shown. File: QuietLetter-demo-English.mp4, 116.27 seconds.
+
+Demo URL: https://youtu.be/w3ckIATcLJ8. The participant approved publication, contest registration, final submission and the additional dataset licence on 15 October 2026. Further research should add independent held-out letters with human annotations and improve classification. Preserve the development-set limitations; a successful smoke test does not establish reliable interpretation of correspondence.
 
 ## License
 
-Application: Apache-2.0. Report/docs and original fictional evaluation content: CC-BY-4.0. Model/runtime retain upstream Apache-2.0/MIT licenses.
+Application: Apache-2.0. Report/docs and video: CC-BY-4.0. Original fictional evaluation dataset and associated recorded data: CDLA-Permissive-2.0, alongside earlier permissions for the original fictional text. Model/runtime retain upstream Apache-2.0/MIT licenses.
 
 ## References
 
@@ -75,3 +77,5 @@ https://huggingface.co/andreasmartin/apertus-v1.5-8b-text
 https://github.com/ggml-org/llama.cpp/releases/tag/b11552
 
 https://hackapertus.ch/terms-and-conditions
+
+https://cdla.dev/permissive-2-0/
