@@ -11,9 +11,15 @@ date scanner displays literal date expressions. It does not infer legal deadline
 give legal advice, contact a sender, or save letters on the server.
 
 Application: Apache-2.0, see LICENSE. Report/docs: CC-BY-4.0.
+Original fictional evaluation dataset and associated recorded data: CDLA-Permissive-2.0,
+see track_2b/data/LICENSE. Earlier CC-BY-4.0 permissions for original fictional text
+are preserved; the contest data grant is additional. The model/runtime keep their upstream licences.
 Upstream template: https://github.com/HackApertus/project-template
 
-Status: public development prototype, not yet submitted. The exact `make run`
+Status: public development prototype prepared for official Track 2B submission.
+English demo: https://youtu.be/w3ckIATcLJ8 (116.27 seconds, edited real captures
+with disclosed synthetic narration). Technical report: track_2b/QuietLetter_Report.pdf.
+The exact `make run`
 passed on a clean public Ubuntu runner, including the Docker build, 12 tests and
 one real local Apertus review: [verification run](https://github.com/jacman1988-super/quietletter/actions/runs/38594216006).
 Read track_2b/docs/VERIFICATION.txt for actual evidence and remaining limitations.
