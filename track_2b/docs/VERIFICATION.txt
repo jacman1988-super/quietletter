@@ -1,4 +1,4 @@
-QuietLetter — actual verification, 14 October 2026
+QuietLetter — actual verification, updated 15 October 2026
 
 PASS / observed
 - Public Apertus 1.5 community GGUF, 5,059,027,136 bytes, exact pinned HF revision and SHA256 verified.
@@ -22,10 +22,11 @@ LIMITS / unverified
 - Larger Chrome example also classified a meeting statement as a task. This is not a reliable classifier. Full source remains visible and all classifications are drafts.
 - Independent keyword/negation rules only highlight disagreements; they do not prove completeness or correctness.
 - Literal date scan does not validate dates or calculate legal deadlines.
-- No final demo video, contest registration or submission yet.
+- Final English demo (116.27 seconds): https://youtu.be/w3ckIATcLJ8. It uses 43 sampled real inference frames, actual source/JSON UI captures and prior successful CI evidence. Synthetic local narration and edited presentation are visibly disclosed. File decode verified; final frames visually reviewed. Video publication, contest registration and final submission were explicitly approved by the participant on 15 October 2026.
+- data/LICENSE adds the event-required CDLA-Permissive-2.0 grant for the original fictional evaluation dataset and associated recorded data; earlier CC-BY-4.0 permissions for original fictional text are retained. The participant explicitly approved this additional grant and its public documentation on 15 October 2026. No runtime code changed.
 - Download was not confirmed through the browser; replaced with a visible, selectable JSON report. No file-download success claim.
 
 Data is original fictional text. No personal letters, keys, private account data or model binaries belong in the source ZIP.
 
 NEXT
-Record a real under-two-minute demo and prepare final contest review. Source publication and the free Docker check were explicitly authorized and completed. No new account, purchase or contest terms acceptance has been performed.
+Official submission is through https://hackapertus.ch/online-hack/submissions. Devpost participant registration was confirmed by its "Thanks for registering!" page on 15 October 2026. Final form acceptance must be verified separately; registration alone does not constitute project submission. No purchase or paid model service is required by this local prototype.
