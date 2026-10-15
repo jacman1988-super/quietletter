@@ -29,4 +29,10 @@ LIMITS / unverified
 Data is original fictional text. No personal letters, keys, private account data or model binaries belong in the source ZIP.
 
 NEXT
-Official submission is through https://hackapertus.ch/online-hack/submissions. Devpost participant registration was confirmed by its "Thanks for registering!" page on 15 October 2026. Final form acceptance must be verified separately; registration alone does not constitute project submission. No purchase or paid model service is required by this local prototype.
+The official form showed "Submission received" on 15 October 2026. No duplicate form has been submitted. Public report revision 2 is supplemental to the original three-page attachment; the site does not expose an edit control in the observed confirmation view. No purchase or paid model service is required by this local prototype.
+
+ADDITIONAL DEVELOPMENT EVALUATION (15 October)
+Twelve further PL/EN fictional cases completed actual local Apertus HTTP inference. Expected exact quotes and dataset hash were fixed before the first request. Prompt and application runtime were unchanged. Cases/annotations were written with coding-assistant help, are not independently human annotated, and deliberately target weaknesses of the small baseline.
+Raw model actions: 8 TP / 4 FP / 2 FN. Existing UI filtering: 8 TP / 2 FP / 2 FN. Raw keyword baseline actions: 2 TP / 1 FP / 8 FN.
+Raw model uncertainty: 8 TP / 8 FP / 0 FN. Raw baseline uncertainty: 0 TP / 0 FP / 8 FN. False positives and both missed direct requests remain recorded.
+The general evaluator's raw/display/baseline separation was corrected; the original saved six-case run was not overwritten. Three evaluator-specific regression tests passed locally. The new four-page report was rendered and visually reviewed. This is a source/report supplement, not a claim of independent validation or a changed official form attachment.
