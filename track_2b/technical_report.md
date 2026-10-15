@@ -2,7 +2,7 @@
 
 Track 2B - Own Project | Online | Jacek Adamek (solo)
 
-Started 14 October 2026. Prepared for Hack Apertus submission. Public source and clean-checkout Docker verification: 14 October. English demo recorded 15 October: 116.27 seconds.
+Started 14 October 2026. Original Track 2B submission received 15 October. Revision 2 supplements the original PDF attachment with further evaluation; no replacement form submission is claimed. Public source and clean-checkout Docker verification: 14 October. English demo recorded 15 October: 116.27 seconds.
 
 ## 1. Summary
 
@@ -28,7 +28,7 @@ Serving: official llama.cpp b11552 CPU Windows build; 4096-token context, four g
 
 ## 4. Data and attribution
 
-data/evaluation.json contains six original hand-authored fictional English/Polish letters and expected passage quotes. Cases cover conditional requests, negation, relative dates, a quoted instruction attack and contradictory meeting dates. No actual user letter or personal correspondence was used. Dataset licence: CDLA-Permissive-2.0 (data/LICENSE), as required by the event. Earlier CC-BY-4.0 permissions for original fictional text remain available. Recorded model responses are attributed evidence, not claimed as human-written letters. They are in data/live-evaluation.json; the first development run is retained separately. Data is below 100 MB. No public Hugging Face dataset publication is claimed.
+data/evaluation.json contains six original AI-assisted fictional English/Polish letters with explicitly specified expected passage quotes. Cases cover conditional requests, negation, relative dates, a quoted instruction attack and contradictory meeting dates. No actual user letter or personal correspondence was used. Dataset licence: CDLA-Permissive-2.0 (data/LICENSE), as required by the event. Earlier CC-BY-4.0 permissions for original fictional text remain available. Recorded model responses are attributed evidence, not claimed as human-written letters. They are in data/live-evaluation.json; the first development run is retained separately. Data is below 100 MB. No public Hugging Face dataset publication is claimed.
 
 The upstream project template is preserved in track_2b, from commit 09f8e9e2b588db3325869b23c6d5132f5c3756f7. No previously submitted application code is repackaged as this new project. Existing official runtime binaries were reused locally and are excluded from the source package.
 
@@ -42,6 +42,14 @@ This is a development set, not a held-out benchmark. The first case informed a p
 
 A larger real Chrome example took 14.7 seconds and also selected a meeting statement as a task. The no-action phrase in that example was flagged separately by the final app. Real source jumps, English translation, edit invalidation and cancellation with no partial result were observed. A file download was attempted but not confirmed; it was replaced with a visible read-only JSON report for manual copying. The final visible JSON report was parsed in Chrome and matched the source hash, four passages and real Apertus identity.
 
+### Additional PL/EN development evaluation - 15 October
+
+Twelve further fictional cases, six Polish and six English, test indirect requests, conditional requests, negation, quoted instruction attacks, completed actions and conflicting dates. All expected exact quotes and the dataset SHA256 were saved before the first call. The model prompt and application runtime were frozen. The coding assistant wrote these cases and annotations; they are not independently human-annotated or held out. The set deliberately contains vocabulary outside the small keyword baseline and cannot estimate general accuracy.
+
+All twelve actual Apertus HTTP calls completed. Raw model action selection: 8 TP, 4 FP, 2 FN, versus raw keyword baseline 2 TP, 1 FP, 8 FN. The final app's existing negation rule reduced model action FP to 2, with 8 TP and 2 FN. Raw model uncertainty: 8 TP, 8 FP, 0 FN; raw baseline 0 TP, 0 FP, 8 FN. Thus Apertus found more indirect requests and uncertainty in this set, but over-selected passages; half its uncertainty selections were false positives. Two direct requests to ask an organiser were missed. These results support a human-review aid, not automated interpretation or a general model-quality claim.
+
+The evaluator now reports raw model selections, displayed filtered selections and raw baseline separately. Previously, its general runner labelled displayed output as model score and filtered baseline output through ground(); historical recorded evidence remains preserved. Three new evaluator regression tests passed locally, separately from the twelve previously verified container tests. Original development metrics above retain their historical scope. Reproduce: node src/evaluate-expanded.mjs while the local app runs. Raw results, protocol hashes and all failures are in data/live-evaluation-expanded.json. No prompt or application rule was tuned on the twelve new results.
+
 ## 6. Limitations
 
 The model can miss requests and misclassify negation or event descriptions. Exact quotes can still be selected incorrectly or lack sufficient context. Date scanning does not validate calendar dates, resolve relative dates or determine legal deadlines; unsupported formats may be missed. Plain text only: no PDF/OCR parser. The small PL/EN examples do not establish multilingual coverage. Model context limits may cause a visible error. No legal review, adversarial security audit, user study, energy measurement or cloud deployment is claimed.
@@ -52,7 +60,7 @@ See docs/RUN.md. Node.js 22.19+ and official llama.cpp b11552 run on the tested 
 
 Public source: https://github.com/jacman1988-super/quietletter, created from the official template. On 14 October 2026 a standard public Ubuntu 24.04 GitHub runner executed the exact make run from a clean checkout at commit 3f21c5fff7b57497bc21535d20bb02b04a765bd7. It downloaded and verified the weights, built Docker, started local Apertus, passed all 12 technical tests inside the image and completed a real fictional HTTP review. The selected request, uncertainty quote and literal date matched that example; inference took 28.659 seconds. This is one container smoke test, not a new accuracy benchmark. The first attempt exposed missing make in the build image; that dependency was added before this successful run. No paid runner, uploaded artifact, cache or external model API was used. Verification: https://github.com/jacman1988-super/quietletter/actions/runs/38594216006. Docker remains absent on the author's Windows host.
 
-The standalone CLI accepts one JSON object with text and language pl/en and returns grounded quotes, date literals, raw selections and disagreement flags; one actual native CLI run returned the expected action and date, and its model stopped afterward. Subsequent public documentation-only updates do not change the tested runtime or workflow.
+The standalone CLI accepts one JSON object with text and language pl/en and returns grounded quotes, date literals, raw selections and disagreement flags; one actual native CLI run returned the expected action and date, and its model stopped afterward. Subsequent documentation and evaluation-tool updates do not change the tested application runtime or Docker workflow. The original twelve container tests and three later local evaluator tests are separate evidence.
 
 ## 8. Demo and next steps
 
